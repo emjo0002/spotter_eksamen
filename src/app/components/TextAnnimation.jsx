@@ -87,7 +87,6 @@ export default function TextAnimation() {
             trigger: imageRef.current,
             start: "top-=75 top",
             end: "bottom+=50 top",
-            markers: true,
             onEnter: () => gsap.set(bg, { opacity: 0 }),
             onLeave: () => gsap.set(bg, { opacity: 1 }),
             onEnterBack: () => gsap.set(bg, { opacity: 0 }),
