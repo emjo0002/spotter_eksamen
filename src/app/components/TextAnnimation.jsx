@@ -85,8 +85,8 @@ export default function TextAnimation() {
           const bg = document.getElementById("header-bg");
           ScrollTrigger.create({
             trigger: imageRef.current,
-            start: "top-=100 top",
-            end: "bottom+=50 top",
+            start: "top-=150 top",
+            end: "bottom+=100 top",
             onEnter: () => gsap.set(bg, { opacity: 0 }),
             onLeave: () => gsap.set(bg, { opacity: 1 }),
             onEnterBack: () => gsap.set(bg, { opacity: 0 }),
