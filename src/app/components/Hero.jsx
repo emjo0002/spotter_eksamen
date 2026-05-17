@@ -23,7 +23,7 @@ export default function Hero() {
             ease: "none",
             scrollTrigger: {
               trigger: taglineRef.current,
-              start: "top-=70 center",
+              start: "top-=30 center",
               end: "center center",
               scrub: true,
             },
