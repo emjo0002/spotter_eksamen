@@ -33,6 +33,8 @@ export default function BestSellers() {
   useEffect(() => {
     if (products.length === 0) return;
 
+    cardsRef.current = cardsRef.current.slice(0, products.length);
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -63,6 +65,8 @@ export default function BestSellers() {
         },
         "<"
       );
+
+      ScrollTrigger.refresh();
     }, sectionRef);
 
     return () => ctx.revert();

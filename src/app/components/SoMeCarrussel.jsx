@@ -8,27 +8,15 @@ export default function SoMeCarousel() {
     { type: "image", src: "/photos/SoMe3.webp" },
     { type: "image", src: "/photos/SoMe4.webp" },
     { type: "image", src: "/photos/SoMe6.webp" },
-    { type: "image", src: "/photos/some1.webp" },
-    { type: "image", src: "/photos/SoMe2.webp" },
-    { type: "box" },
-    { type: "image", src: "/photos/SoMe3.webp" },
-    { type: "image", src: "/photos/SoMe4.webp" },
-    { type: "image", src: "/photos/SoMe6.webp" },
-    { type: "image", src: "/photos/some1.webp" },
-    { type: "image", src: "/photos/SoMe2.webp" },
-    { type: "box" },
-    { type: "image", src: "/photos/SoMe3.webp" },
-    { type: "image", src: "/photos/SoMe4.webp" },
-    { type: "image", src: "/photos/SoMe6.webp" },
   ];
 
-  const duplicatedItems = [...items, ...items, ...items, ...items];
+  const loopItems = [...items, ...items];
 
   return (
     <div className="overflow-hidden w-full pt-20 bg-[var(--white)]">
       <style>
         {`
-          @keyframes scroll {
+          @keyframes some-carousel-scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
@@ -36,10 +24,10 @@ export default function SoMeCarousel() {
       </style>
 
       <div
-        className="flex animate-[scroll_20s_linear_infinite] w-[200%]"
+        className="flex w-max animate-[some-carousel-scroll_20s_linear_infinite]"
         style={{ willChange: "transform" }}
       >
-        {duplicatedItems.map((item, index) => (
+        {loopItems.map((item, index) => (
           <div
             key={index}
             className="flex-shrink-0 w-[350px] px-2"

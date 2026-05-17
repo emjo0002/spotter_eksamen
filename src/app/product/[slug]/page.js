@@ -62,6 +62,7 @@ export default function ProductSlugPage() {
                 src={img}
                 alt={`thumb-${i}`}
                 fill
+                sizes="100px"
                 onClick={() => setMainImage(img)}
                 className="object-cover cursor-pointer hover:opacity-70 transition"
               />

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../lib/supabase";
 import ProductCard from "./ProductCard";
 import ProductFilter from "./ProductFilter";
@@ -12,6 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function GetProducts({ openBasket, addToBasket }) {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Alle");
+  const sectionRef = useRef(null);
+  const listRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,32 +27,50 @@ export default function GetProducts({ openBasket, addToBasket }) {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const cards = gsap.utils.toArray(".product-card");
-    cards.forEach((card) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-  }, [products]);
+  const categories = useMemo(() => [...new Set(products.map((p) => p.category))], [products]);
+  const filteredProducts = useMemo(
+    () => selectedCategory === "Alle" ? products : products.filter((p) => p.category === selectedCategory),
+    [products, selectedCategory]
+  );
 
-  const categories = [...new Set(products.map((p) => p.category))];
-  const filteredProducts = selectedCategory === "Alle" ? products : products.filter((p) => p.category === selectedCategory);
+  useEffect(() => {
+    if (filteredProducts.length === 0 || !listRef.current) return;
+
+    let ctx;
+    const frame = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+        const cards = gsap.utils.toArray(listRef.current.querySelectorAll(".product-card"));
+
+        cards.forEach((card) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
+
+        ScrollTrigger.refresh();
+      }, sectionRef);
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      ctx?.revert();
+    };
+  }, [filteredProducts]);
 
   return (
-    <section className="px-4 sm:px-6 lg:px-16 py-10">
+    <section ref={sectionRef} className="px-4 sm:px-6 lg:px-16 py-10">
       <div className="grid md:grid-cols-2 items-center gap-8 mb-16">
         <div>
         <nav className="text-sm text-gray-500 mb-6 mt-25">
@@ -75,7 +95,7 @@ export default function GetProducts({ openBasket, addToBasket }) {
       <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-10">
         <ProductFilter categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">{filteredProducts.length === 0 ? <p>Ingen produkter fundet.</p> : filteredProducts.map((product) => <ProductCard key={product.id} product={product} openBasket={openBasket} addToBasket={addToBasket} />)}</div>
+        <div ref={listRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">{filteredProducts.length === 0 ? <p>Ingen produkter fundet.</p> : filteredProducts.map((product) => <ProductCard key={product.id} product={product} openBasket={openBasket} addToBasket={addToBasket} />)}</div>
       </div>
     </section>
   );

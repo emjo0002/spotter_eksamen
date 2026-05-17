@@ -26,8 +26,9 @@ export default function ProduktGuide() {
         scrollTrigger: {
           id: "produktguide-trigger",
           trigger: containerRef2.current,
-          start: "bottom 60%",
-          toggleActions: "play reverse play reverse",
+          start: "top center",
+          end: "bottom top",
+          toggleActions: "play reverse play reverse"
         },
       });
 
@@ -81,7 +82,7 @@ export default function ProduktGuide() {
             alt={"Random1"}
             width={500}
             height={500}
-            onLoadingComplete={() => setLoadedImages((count) => count + 1)}
+            onLoad={() => setLoadedImages((count) => count + 1)}
           />
           <Image
             ref={smallImageRef}
@@ -90,7 +91,7 @@ export default function ProduktGuide() {
             width={200}
             height={200}
             className="absolute -bottom-10 right-0 w-[40%] h-auto"
-            onLoadingComplete={() => setLoadedImages((count) => count + 1)}
+            onLoad={() => setLoadedImages((count) => count + 1)}
           />
         </div>
 

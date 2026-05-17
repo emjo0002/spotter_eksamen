@@ -76,6 +76,7 @@ export default function Hero() {
           alt="Workshop billede"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </div>

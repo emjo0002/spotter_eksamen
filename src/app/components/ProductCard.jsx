@@ -87,6 +87,7 @@ export default function ProductCard({ product }) {
               src={product.image}
               alt={product.name}
               fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover transition-opacity duration-500 group-hover:opacity-0"
             />
             {product.image2 && (
@@ -94,6 +95,7 @@ export default function ProductCard({ product }) {
                 src={product.image2}
                 alt={`${product.name} alternativt billede`}
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
             )}

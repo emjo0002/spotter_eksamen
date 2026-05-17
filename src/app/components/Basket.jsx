@@ -76,6 +76,7 @@ export default function Basket() {
                 src={item.image}
                 alt={item.name}
                 fill
+                sizes="320px"
                 className="object-cover rounded"
               />
             </div>
@@ -116,6 +117,7 @@ export default function Basket() {
             src={hasItems ? "/photos/happybasket.png" : "/photos/basket.png"}
             alt="Kurv ikon"
             fill
+            sizes="32px"
             className="object-contain"
           />
           {hasItems && (

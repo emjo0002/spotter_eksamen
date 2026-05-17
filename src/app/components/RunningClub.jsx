@@ -25,7 +25,7 @@ export default function RunningClub() {
         scrollTrigger: {
           id: "runningclub-trigger",
           trigger: containerRef.current,
-          start: "bottom 60%",
+          start: "top center",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -110,7 +110,7 @@ export default function RunningClub() {
             alt="Running Club 1"
             width={300}
             height={300}
-            onLoadingComplete={() => setLoadedImages((count) => count + 1)}
+            onLoad={() => setLoadedImages((count) => count + 1)}
           />
           <Image
             ref={(el) => (imagesRef.current[1] = el)}
@@ -118,7 +118,7 @@ export default function RunningClub() {
             alt="Running Club 2"
             width={300}
             height={300}
-            onLoadingComplete={() => setLoadedImages((count) => count + 1)}
+            onLoad={() => setLoadedImages((count) => count + 1)}
           />
           <Image
             ref={(el) => (imagesRef.current[2] = el)}
@@ -126,7 +126,7 @@ export default function RunningClub() {
             alt="Running Club 3"
             width={300}
             height={300}
-            onLoadingComplete={() => setLoadedImages((count) => count + 1)}
+            onLoad={() => setLoadedImages((count) => count + 1)}
           />
 
           <div

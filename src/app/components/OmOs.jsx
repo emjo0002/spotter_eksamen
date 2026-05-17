@@ -20,8 +20,9 @@ export default function Omos() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 92%",
+            start: "top bottom-=200",
             toggleActions: "play none none reverse",
+            markers: true,
           },
         }
       );
@@ -29,7 +30,7 @@ export default function Omos() {
   }, []);
 
   return (
-    <section className="bg-[var(--white)] text-[#2c2c2c] py-24 px-4 sm:px-6 lg:px-16 space-y-32 pt-40">
+    <section className="bg-[var(--white)] text-[#2c2c2c] py-24 px-4 sm:px-6 lg:px-16 space-y-32 pt-64">
       <div className="max-w-4xl mx-auto text-center psy-section">
         <h2 className="text-sm uppercase text-[#4D6A4E] tracking-widest mb-2">Spotter</h2>
         <h1 className="text-5xl font-bold mb-6">OM OS</h1>

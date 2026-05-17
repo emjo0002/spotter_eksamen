@@ -30,10 +30,10 @@ export default function TextAnimation() {
           ease: "none",
           scrollTrigger: {
             trigger: imageRef.current,
-            start: "bottom center",
-            end: "bottom top",
+            start: "top center",
+            end: "center center",
             scrub: true,
-            id: "textanimation-scale",
+            id: "textanimation-scale"
           },
         });
 
@@ -45,10 +45,10 @@ export default function TextAnimation() {
             stagger: 0.1,
             scrollTrigger: {
               trigger: char,
-              start: "bottom center",
-            end: "bottom top",
+              start: "top bottom-=50",
+              end: "center+=50 center",
               scrub: true,
-              id: `textanimation-split-${index}`,
+              id: `textanimation-split-${index}`
             },
           });
         });
@@ -60,10 +60,10 @@ export default function TextAnimation() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: secondTextRef.current,
-            start: "bottom center",
+            start: "bottom bottom-=50",
             end: "bottom top",
             toggleActions: "play reverse play reverse",
-            id: "textanimation-secondtext",
+            id: "textanimation-secondtext"
           },
         });
 
@@ -74,7 +74,7 @@ export default function TextAnimation() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: btnRef3.current,
-            start: "bottom center",
+            start: "bottom bottom-=100",
             end: "bottom top",
             toggleActions: "play reverse play reverse",
             id: "textanimation-button",
@@ -85,8 +85,9 @@ export default function TextAnimation() {
           const bg = document.getElementById("header-bg");
           ScrollTrigger.create({
             trigger: imageRef.current,
-            start: "bottom-=50 center",
-            end: "bottom+=500 top",
+            start: "top-=75 top",
+            end: "bottom+=50 top",
+            markers: true,
             onEnter: () => gsap.set(bg, { opacity: 0 }),
             onLeave: () => gsap.set(bg, { opacity: 1 }),
             onEnterBack: () => gsap.set(bg, { opacity: 0 }),

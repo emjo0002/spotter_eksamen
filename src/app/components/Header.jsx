@@ -157,8 +157,8 @@ export default function Header() {
                   <Link href="/guides/opskrifter" className="text-sm font-normal hover:underline">Opskrifter</Link>
                   <Link href="/guides/ny" className="text-sm font-normal hover:underline">Ny til træning?</Link>
                 </div>
-                <div><Image src="/photos/smoothie.webp" alt="Billede 1" width={300} height={200} className="object-cover rounded-lg" /></div>
-                <div><Image src="/photos/flasker.webp" alt="Billede 2" width={300} height={200} className="object-cover rounded-lg" /></div>
+                <div><Image src="/photos/smoothie.webp" alt="Billede 1" width={300} height={200} className="object-cover rounded-lg" style={{ width: "auto", height: "auto" }} /></div>
+                <div><Image src="/photos/flasker.webp" alt="Billede 2" width={300} height={200} className="object-cover rounded-lg" style={{ width: "auto", height: "auto" }} /></div>
               </div>
             </div>
           </div>
