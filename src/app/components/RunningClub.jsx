@@ -95,10 +95,10 @@ export default function RunningClub() {
 
           <div ref={btnRef}>
             <button
-              href="/product/biotechkreatin"
+              href="/"
               className="border bg-[var(--black)] text-[var(--white)] px-6 py-2 text-xs tracking-wider hover:bg-[var(--white)] hover:text-[var(--black)] transition rounded-xl w-30 text-center inline-block"
             >
-            Køb her
+            Tilmeld dig
            </button>
           </div>
         </div>

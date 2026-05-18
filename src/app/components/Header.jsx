@@ -139,7 +139,7 @@ export default function Header() {
         <nav className="flex gap-6 text-lg relative">
           <div className="relative group">
             <Link href="/productlist" className="hover:underline">Produkter</Link>
-            <div className="group-hover:flex absolute -left-6 top-full bg-white shadow-xl rounded-md z-50 transition-all duration-500 ease-in-out opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
+            <div className="group-hover:flex absolute -left-6 top-full bg-white shadow-xl pb-5 rounded-md z-50 transition-all duration-500 ease-in-out opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
               <div className="grid grid-cols-[1fr_1fr_1fr_2fr_2fr] gap-8 w-screen p-6 pt-9 h-[45vh]">
                 <div className="flex flex-col gap-4">
                   <p className="opacity-70 text-xs mb-2 font-medium">Produkter</p>
