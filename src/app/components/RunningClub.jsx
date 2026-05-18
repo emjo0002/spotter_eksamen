@@ -142,7 +142,7 @@ export default function RunningClub() {
             <div className="text-left text-[clamp(0.5rem,1.5vw,1rem)] md:text-[clamp(0.5rem,2vw,2rem)] lg:text-[clamp(0.5rem,1vw,1rem)] font-semibold flex pt-[3%] pr-[5%] pl-[5%] justify-between">
               <div>
                 <p>Tuesdays</p>
-                <p>7:15am</p>
+                <p>7:30am</p>
               </div>
               <p className="text-base italic font-semibold">@Spotter</p>
             </div>
